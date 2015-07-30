@@ -26,6 +26,7 @@
 - (void)dealloc {
     _view = nil;
     _dataSource = nil;
+    _delegate = nil;
 }
 
 - (instancetype)initWithFrame:(CGRect)rect onViewController:(UIViewController *)controller {
@@ -231,7 +232,8 @@
     return isInRect;
 }
 
-#pragma mark 
+#pragma mark 计算最大的宽高
+
 - (void)calculateMaxWidthAndHeight:(NSMutableArray *)buttonArray {
     for (UIButton *button in buttonArray) {
         CGSize buttonSize = button.frame.size;

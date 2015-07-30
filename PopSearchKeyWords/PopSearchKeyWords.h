@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) UIView *view;
 
-@property (nonatomic, assign) id<PopSearchKeyWordsDelegate>delegate;
+@property (nonatomic, weak) id<PopSearchKeyWordsDelegate>delegate;
 
 @property (nonatomic, strong) NSArray *dataSource;
 
