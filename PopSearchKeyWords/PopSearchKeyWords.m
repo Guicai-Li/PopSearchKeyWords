@@ -199,11 +199,12 @@
     //  | ----------- |
     //  |-------------|
     // DO:计算出最大的文字宽度 高度
-    float viewCenterX = 40;
-    float viewCenterY = 40;
+    // !!!:修改具体边距
+    float viewCenterX = 20;
+    float viewCenterY = 20;
     if (DEVICE_IS_IPHONE6_PLUS) {
-        viewCenterX = 55;
-        viewCenterY = 55;
+        viewCenterX = 35;
+        viewCenterY = 35;
     }
 
     float distanceX = (arc4random() % (int)(self.rect.size.width - viewCenterX * 2));
