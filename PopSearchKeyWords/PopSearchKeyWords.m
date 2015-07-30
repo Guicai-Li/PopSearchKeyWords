@@ -10,6 +10,7 @@
 #import "pop/POP.h"
 
 #define kButtonTage 62292
+#define DEVICE_IS_IPHONE6_PLUS (([[UIScreen mainScreen] bounds].size.height - 736) ? NO : YES)
 
 @interface PopSearchKeyWords() {
     int currentIndex;
@@ -82,7 +83,7 @@
     UIButton *keyWordButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     // TODO：字体大小
-    NSInteger fontSize = (arc4random() % 15) + 15;
+    NSInteger fontSize = (arc4random() % 10) + 15;
     
     CGFloat buttonWidth = [self widthForLableWithText:title fontSize:fontSize];
     
@@ -115,8 +116,8 @@
                                         attributes:attribute context:nil].size;
     }
     
-    float height = stringSize.width +2;
-    return height;
+    float width = stringSize.width + 2;
+    return width;
 }
 
 #pragma mark keyWordsButtonClicked
@@ -197,8 +198,13 @@
     //  | ----------- |
     //  |-------------|
     // DO:计算出最大的文字宽度 高度
-    float viewCenterX = 55;
-    float viewCenterY = 55;
+    float viewCenterX = 40;
+    float viewCenterY = 40;
+    if (DEVICE_IS_IPHONE6_PLUS) {
+        viewCenterX = 55;
+        viewCenterY = 55;
+    }
+
     float distanceX = (arc4random() % (int)(self.rect.size.width - viewCenterX * 2));
     float distanceY = (arc4random() % (int)(self.rect.size.width - viewCenterY * 2));
     float rectX = (viewCenterX + distanceX - maxWidth > viewCenterX) && (viewCenterX + distanceX - maxWidth < self.rect.size.width - viewCenterX) ? viewCenterX + distanceX - maxWidth: viewCenterX;
